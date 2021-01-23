@@ -72,8 +72,14 @@ function codificar1 (event) {
   const offset = parseInt(document.getElementById("offset").value);
   let encodetext = document.getElementById("encodetext").value;
 
+  let encodetextarray = encodetext.split("");
+  let text_resultN = encodetextarray.includes("Ñ");
+  let text_resultn = encodetextarray.includes("ñ")
+    if(text_resultN=== true || text_resultn===true){
+      return alert('No debes ingresar ni "Ñ" ni "ñ"');
+    }
   let screenshow = document.getElementById("screenshow");
-  screenshow.value = cipher.encode(offset, encodetext);
+  screenshow.value = cipher.encode(offset, encodetextarray, encodetext);
 }
 
 // AHORA TRABAJAMOS LA FUNCION DECODIFICAR

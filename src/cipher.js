@@ -1,26 +1,29 @@
 const cipher = {
-  encode: function (offset, encodetext){
-    let encodetextarrayjs = encodetext.split("");
-    for (let i = 0; i < encodetextarrayjs.length; i++) {
-      if(encodetextarrayjs[i] === encodetextarrayjs[i].toUpperCase()){
-        encodetextarrayjs[i] = encodetextarrayjs[i].charCodeAt(0);
-      } else if (encodetextarrayjs[i] === encodetextarrayjs[i].toLowerCase()) {
-         encodetextarrayjs[i] = encodetextarrayjs[i].toUpperCase();
-         encodetextarrayjs[i] = encodetextarrayjs[i].charCodeAt(0)
+  encode: function (offset, encodetextarray, encodetext) {
+
+    for (let i = 0; i < encodetextarray.length; i++) {
+      if(encodetextarray[i] === encodetextarray[i].toUpperCase()){
+        encodetextarray[i] = encodetextarray[i].charCodeAt(0);
+      } else if (encodetextarray[i] === encodetextarray[i].toLowerCase()) {
+        encodetextarray[i] = encodetextarray[i].toUpperCase();
+        encodetextarray[i] = encodetextarray[i].charCodeAt(0)
       }
     }
-    console.log(encodetextarrayjs);
+    console.log(encodetextarray);
 
-    let runencodetextarrayjs = encodetextarrayjs.map(function(element) {
+    let runencodetextarray = encodetextarray.map(function(element) {
       return String.fromCharCode((element - 65 + offset) % 26 + 65);
     })
-    let stringconvert = runencodetextarrayjs.join('');
-     if (encodetext === encodetext.toUpperCase()){
+    console.log(runencodetextarray);
+    let stringconvert = runencodetextarray.join('');
+
+
+    if (encodetext === encodetext.toUpperCase()) {
       return stringconvert;
-     } else {
+    } else {
       return stringconvert.toLowerCase();
-     }
-    },
+    }
+  },
 
   decode: function (number1, text1){
     let decodetextarrjs = text1.split('');
