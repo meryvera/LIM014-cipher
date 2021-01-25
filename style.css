@@ -39,6 +39,10 @@ a{
   color: rgb(255, 255, 255);
   font-size: 1.2rem;
 }
+h4{
+  margin-bottom: 15px;
+  text-align: center;
+}
 /* ESTILOS INTERFAZ 1 */
 .interfaz1{
   margin: 50px auto;
