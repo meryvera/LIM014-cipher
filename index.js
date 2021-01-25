@@ -21,7 +21,7 @@ function funcEmpezar (event){
     <section class="container-botones">
       <button id="encodebutton">Cifrar</button>
       <button id="decodebutton">Descifrar</button>
-      <button id="infobutton">Informacion</button>
+      <button id="infobutton">Información</button>
     </section>
     <section id="container-mainjs" class=container-main></section>
     `
@@ -61,18 +61,25 @@ function funcEncode (event) {
           <input type="text" id="screenshow" readonly>
         </label>
       </div>
-      <button id="codificar">ir</button
+      <button id="codificar">Ejecutar</button
     </form>
   `
   const codificar = document.getElementById("codificar");
   codificar.addEventListener('click', codificar1 );
 }
-function codificar1 () {
+function codificar1 (event) {
+  event.preventDefault();
   const offset = parseInt(document.getElementById("offset").value);
   let encodetext = document.getElementById("encodetext").value;
 
+  let encodetextarray = encodetext.split("");
+  let text_resultN = encodetextarray.includes("Ñ");
+  let text_resultn = encodetextarray.includes("ñ")
+    if(text_resultN=== true || text_resultn===true){
+      return alert('No debes ingresar ni "Ñ" ni "ñ"');
+    }
   let screenshow = document.getElementById("screenshow");
-  screenshow.value = cipher.encode(offset, encodetext);
+  screenshow.value = cipher.encode(offset, encodetextarray, encodetext);
 }
 
 // AHORA TRABAJAMOS LA FUNCION DECODIFICAR
@@ -95,13 +102,14 @@ function funcDecode () {
           <input type="text" id="screenshow1" readonly>
         </label>
       </div>
-      <button id="decodificar">ir</button
+      <button id="decodificar">Ejecutar</button
     </form>
   `
  const decodificar = document.getElementById("decodificar");
  decodificar.addEventListener('click', decodificar1);
 }
-function decodificar1 (){
+function decodificar1 (event){
+  event.preventDefault();
   const offset1 = document.getElementById("offset1").value;
   let decodetext = document.getElementById("decodetext").value;
 
@@ -109,6 +117,7 @@ function decodificar1 (){
   screenshow1.value = cipher.decode(offset1, decodetext);
 }
 
+// AHORA TRABAJAMOS LA FUNCION INFORMACION
 function funcInfo (){
   const containermainjs = document.getElementById("container-mainjs");
   containermainjs.innerHTML = `
@@ -164,7 +173,7 @@ function funcInfo (){
             <label>Ingresa tu consulta</label> <br><br>
             <textarea cols="40" rows="5">Descripción</textarea>
           </div>
-        <button>Enviar</button>
+        <button class="boton-enviar">Enviar</button>
         </form>
       </div>
     </section>
