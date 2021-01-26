@@ -17,6 +17,7 @@ Para esta investigación, aplicamos la metodología ágil SCRUM y recopilamos la
   Ellos, consideran la seguridad financieras como prioriodad y siempre están informándose sobre como proteger sus cuentas bancarias. Aunque también existe el otro 35% de usuarios que tienen entre 22 y 65 años, que les interesa proteger su dinero en el banco pero desconocen sobre las nuevas modalidades de estafa por falta de información clara y concisa.
 
    El 70% de ellos realizan sus operaciones financieras a través de desktops ya que les permite ver con mayor claridad las páginas y las urls que visitan para evitar ser estafados.
+   
 - ***Etapa 2 - Definición***
   De acuerdo a nuestra investigación previa, determinamos 2 arquetipos de usuarios:
   * Carlos - tiene 27 años y es soltero, y tiene su emprendimiento de barbería. El realiza hasta 20 operaciones financieras al mes entre online y físicas, debido a su rubro económico. Él considera una prioridad la seguridad financiera, por eso tiene asegurada sus cuentas contra robos hasta cierto monto. Su problema es que debido al alto volumen de transacciones que realiza teme ser víctima de algún delito cibernético y financiero, y está considerando reducir la cantidad de operaciones promedio mensual.
@@ -33,7 +34,7 @@ Para esta investigación, aplicamos la metodología ágil SCRUM y recopilamos la
   EL prototipo fue trabajado especialmente para desktops pero también se adapta de móviles.
 
   **sketch 1 (hacer click en el ícono)**
-  ![Prototipo1](pnghttps://github.com/meryvera/LIM014-cipher/blob/mery-cipher2.1/src/img/prototipo1. "sketch 1")
+  ![Prototipo1](https://github.com/meryvera/LIM014-cipher/blob/mery-cipher2.1/src/img/prototipo1.png "sketch 1")
 
    **sketch 2 (hacer click en el ícono)**
   ![Prototipo2](https://github.com/meryvera/LIM014-cipher/blob/mery-cipher2.1/src/img/prototipo2.png "sketch 2")
