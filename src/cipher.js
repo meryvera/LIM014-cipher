@@ -25,11 +25,11 @@ const cipher = {
   },
 
   decode: function (offset1, decodetextarray, decodetext){
-    for (let index = 0; index <decodetextarray.length; index++) {
+    for (let index = 0; index < decodetextarray.length; index++) {
       if (decodetextarray[index] === decodetextarray[index].toUpperCase()) {
         decodetextarray[index] = decodetextarray[index].charCodeAt(0);
       } else if (decodetextarray[index] === decodetextarray[index].toLowerCase()) {
-        decodetextarray[index] = decodetextarray[index].toUpperCase(0);
+        decodetextarray[index] = decodetextarray[index].toUpperCase();
         decodetextarray[index] = decodetextarray[index].charCodeAt(0);
       }
     }
