@@ -85,6 +85,7 @@ function codificar1 (event) {
   let encodetext = document.getElementById("encodetext").value;
 
   let encodetextarray = encodetext.split("");
+  console.log(encodetextarray);
   let text_resultN = encodetextarray.includes("Ñ");
   let text_resultn = encodetextarray.includes("ñ");
     if(text_resultN=== true || text_resultn===true){

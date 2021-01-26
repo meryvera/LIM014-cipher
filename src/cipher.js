@@ -1,6 +1,6 @@
 const cipher = {
-  encode: function (offset, encodetextarray, encodetext) {
-
+  encode: function (offset, encodetextarrayjs, encodetext) {
+    const encodetextarray= encodetextarrayjs;
     for (let i = 0; i < encodetextarray.length; i++) {
       if(encodetextarray[i] === encodetextarray[i].toUpperCase()){
         encodetextarray[i] = encodetextarray[i].charCodeAt(0);
