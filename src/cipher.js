@@ -17,7 +17,6 @@ const cipher = {
     console.log(runencodetextarray);
     let stringconvert = runencodetextarray.join('');
 
-
     if (encodetext === encodetext.toUpperCase()) {
       return stringconvert;
     } else {
@@ -25,24 +24,20 @@ const cipher = {
     }
   },
 
-  decode: function (number1, text1){
-    let decodetextarrjs = text1.split('');
-    console.log(decodetextarrjs);
-
-    for (let index = 0; index <decodetextarrjs.length; index++) {
-      if (decodetextarrjs[index] === decodetextarrjs[index].toUpperCase()) {
-        decodetextarrjs[index] = decodetextarrjs[index].charCodeAt(0);
-      }
-      else if (decodetextarrjs[index] === decodetextarrjs[index].toLowerCase()) {
-        decodetextarrjs[index] = decodetextarrjs[index].toUpperCase(0);
-        decodetextarrjs[index] = decodetextarrjs[index].charCodeAt(0);
+  decode: function (offset1, decodetextarray, decodetext){
+    for (let index = 0; index <decodetextarray.length; index++) {
+      if (decodetextarray[index] === decodetextarray[index].toUpperCase()) {
+        decodetextarray[index] = decodetextarray[index].charCodeAt(0);
+      } else if (decodetextarray[index] === decodetextarray[index].toLowerCase()) {
+        decodetextarray[index] = decodetextarray[index].toUpperCase(0);
+        decodetextarray[index] = decodetextarray[index].charCodeAt(0);
       }
     }
-    let rundecodetextarrjs = decodetextarrjs.map(function (elemento){
-      return String.fromCharCode((elemento - number1 + 65 )% 26 + 65)
+    let rundecodetextarray = decodetextarray.map(function (elemento){
+      return String.fromCharCode((elemento - offset1 + 65 )% 26 + 65)
     });
-    let stringconvert1 = rundecodetextarrjs.join('');
-    if (text1 === text1.toUpperCase()){
+    let stringconvert1 = rundecodetextarray.join('');
+    if (decodetext === decodetext.toUpperCase()){
       return stringconvert1;
     } else {
         return stringconvert1.toLowerCase();

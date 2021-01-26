@@ -1,5 +1,18 @@
 import cipher from './cipher.js';
+// TRABAJAMOS LA FUNCION MODAL
+const donatebutton = document.getElementById('btn-modal');
+const closebutton = document.getElementById('close');
+const modal = document.getElementById('modal');
 
+donatebutton.onclick = function(event){
+  event.preventDefault();
+  modal.style.display = 'block';
+}
+closebutton.onclick = function(){
+  modal.style.display = 'none';
+}
+
+// TRABAJAMOS LA FUNCION NOMBRE ALEATORIO
 const startbutton = document.getElementById('button-start-js');
 startbutton.addEventListener ('click', funcEmpezar);
 
@@ -27,23 +40,22 @@ function funcEmpezar (event){
     `
   const encodebutton = containerwelcome.querySelector("#encodebutton");
   encodebutton.addEventListener ('click', funcEncode);
-  console.log(encodebutton)
+  console.log(encodebutton);
 
   const decodebutton = containerwelcome.querySelector("#decodebutton");
   decodebutton.addEventListener ('click', funcDecode);
-  console.log(decodebutton)
+  console.log(decodebutton);
 
   const infobutton = containerwelcome.querySelector("#infobutton");
   infobutton.addEventListener ('click', funcInfo);
-  console.log(infobutton)
+  console.log(infobutton);
 }
 
 // AHORA TRABAJAMOS LA FUNCION CODIFICAR
 function funcEncode (event) {
   event.preventDefault();
+  /* encodebutton.style.backgroundColor= "red"; */
   const containermainjs = document.getElementById("container-mainjs");
-  //solo con action# + event preventdefault ya no se resetea la pagina, xqe?, además esto ocurre solo en el 2do click al primeroigual se resetea?
-  //no se supone que solo con event preventdefault ya se evita ello?
   containermainjs.innerHTML = `
     <form action="#">
       <div>
@@ -61,7 +73,7 @@ function funcEncode (event) {
           <input type="text" id="screenshow" readonly>
         </label>
       </div>
-      <button id="codificar">Ejecutar</button
+      <button id="codificar" class="btn-ejecutar">Ejecutar</button
     </form>
   `
   const codificar = document.getElementById("codificar");
@@ -74,7 +86,7 @@ function codificar1 (event) {
 
   let encodetextarray = encodetext.split("");
   let text_resultN = encodetextarray.includes("Ñ");
-  let text_resultn = encodetextarray.includes("ñ")
+  let text_resultn = encodetextarray.includes("ñ");
     if(text_resultN=== true || text_resultn===true){
       return alert('No debes ingresar ni "Ñ" ni "ñ"');
     }
@@ -84,6 +96,7 @@ function codificar1 (event) {
 
 // AHORA TRABAJAMOS LA FUNCION DECODIFICAR
 function funcDecode () {
+  /* decodebutton.style.backgroundColor= "red"; */
   const containermainjs = document.getElementById("container-mainjs");
   containermainjs.innerHTML = `
     <form>
@@ -102,7 +115,7 @@ function funcDecode () {
           <input type="text" id="screenshow1" readonly>
         </label>
       </div>
-      <button id="decodificar">Ejecutar</button
+      <button id="decodificar" class="btn-ejecutar">Ejecutar</button
     </form>
   `
  const decodificar = document.getElementById("decodificar");
@@ -110,16 +123,23 @@ function funcDecode () {
 }
 function decodificar1 (event){
   event.preventDefault();
-  const offset1 = document.getElementById("offset1").value;
+  const offset1 = parseInt(document.getElementById("offset1").value);
   let decodetext = document.getElementById("decodetext").value;
 
+  let decodetextarray = decodetext.split("");
+  let text_resultN = decodetextarray.includes("Ñ");
+  let text_resultn = decodetextarray.includes("ñ")
+    if(text_resultN=== true || text_resultn===true){
+      return alert('No debes ingresar ni "Ñ" ni "ñ"');
+    }
   let screenshow1 = document.getElementById('screenshow1');
-  screenshow1.value = cipher.decode(offset1, decodetext);
+  screenshow1.value = cipher.decode(offset1, decodetextarray, decodetext);
 }
 
 // AHORA TRABAJAMOS LA FUNCION INFORMACION
 function funcInfo (){
   const containermainjs = document.getElementById("container-mainjs");
+  /* infobutton.style.backgroundColor= "red"; */
   containermainjs.innerHTML = `
     <section class="info">
       <h2 class="faq-h2">Preguntas Frecuentes</h2>
@@ -173,7 +193,7 @@ function funcInfo (){
             <label>Ingresa tu consulta</label> <br><br>
             <textarea cols="40" rows="5">Descripción</textarea>
           </div>
-        <button class="boton-enviar">Enviar</button>
+        <button class="btn-ejecutar">Enviar</button>
         </form>
       </div>
     </section>
