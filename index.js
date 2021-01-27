@@ -1,5 +1,19 @@
 import cipher from './cipher.js';
 
+// TRABAJAMOS LA FUNCION MODAL
+const donatebutton = document.getElementById('btn-modal');
+const closebutton = document.getElementById('close');
+const modal = document.getElementById('modal');
+
+donatebutton.onclick = function(event){
+  event.preventDefault();
+  modal.style.display = 'block';
+}
+closebutton.onclick = function(){
+  modal.style.display = 'none';
+}
+
+// TRABAJAMOS LA FUNCION NOMBRE ALEATORIO
 const startbutton = document.getElementById('button-start-js');
 startbutton.addEventListener ('click', funcEmpezar);
 
@@ -19,9 +33,9 @@ function funcEmpezar (event){
   containerwelcome.innerHTML = `
     <h2> Hola, ${seudonimo}. ¿Qué deseas realizar? </h2>
     <section class="container-botones">
-      <button id="encodebutton">Cifrar</button>
-      <button id="decodebutton">Descifrar</button>
-      <button id="infobutton">Información</button>
+      <button id="encodebutton" class="container-botones-btn">Cifrar</button>
+      <button id="decodebutton" class="container-botones-btn">Descifrar</button>
+      <button id="infobutton" class="container-botones-btn">Información</button>
     </section>
     <section id="container-mainjs" class=container-main></section>
     `
@@ -38,7 +52,7 @@ function funcEmpezar (event){
   console.log(infobutton)
 }
 
-// AHORA TRABAJAMOS LA FUNCION CODIFICAR
+// TRABAJAMOS LA FUNCION CODIFICAR
 function funcEncode (event) {
   event.preventDefault();
   const containermainjs = document.getElementById("container-mainjs");
@@ -61,7 +75,7 @@ function funcEncode (event) {
           <input type="text" id="screenshow" readonly>
         </label>
       </div>
-      <button id="codificar">Ejecutar</button
+      <button id="codificar" class="btn-ejecutar">Ejecutar</button
     </form>
   `
   const codificar = document.getElementById("codificar");
@@ -72,17 +86,11 @@ function codificar1 (event) {
   const offset = parseInt(document.getElementById("offset").value);
   let encodetext = document.getElementById("encodetext").value;
 
-  let encodetextarray = encodetext.split("");
-  let text_resultN = encodetextarray.includes("Ñ");
-  let text_resultn = encodetextarray.includes("ñ")
-    if(text_resultN=== true || text_resultn===true){
-      return alert('No debes ingresar ni "Ñ" ni "ñ"');
-    }
   let screenshow = document.getElementById("screenshow");
-  screenshow.value = cipher.encode(offset, encodetextarray, encodetext);
+  screenshow.value = cipher.encode(offset, encodetext);
 }
 
-// AHORA TRABAJAMOS LA FUNCION DECODIFICAR
+// TRABAJAMOS LA FUNCION DECODIFICAR
 function funcDecode () {
   const containermainjs = document.getElementById("container-mainjs");
   containermainjs.innerHTML = `
@@ -102,7 +110,7 @@ function funcDecode () {
           <input type="text" id="screenshow1" readonly>
         </label>
       </div>
-      <button id="decodificar">Ejecutar</button
+      <button id="decodificar" class="btn-ejecutar">Ejecutar</button
     </form>
   `
  const decodificar = document.getElementById("decodificar");
@@ -117,7 +125,7 @@ function decodificar1 (event){
   screenshow1.value = cipher.decode(offset1, decodetext);
 }
 
-// AHORA TRABAJAMOS LA FUNCION INFORMACION
+// TRABAJAMOS LA FUNCION INFORMACION
 function funcInfo (){
   const containermainjs = document.getElementById("container-mainjs");
   containermainjs.innerHTML = `
@@ -173,7 +181,7 @@ function funcInfo (){
             <label>Ingresa tu consulta</label> <br><br>
             <textarea cols="40" rows="5">Descripción</textarea>
           </div>
-        <button class="boton-enviar">Enviar</button>
+        <button class="boton-enviar"  class="btn-ejecutar">Enviar</button>
         </form>
       </div>
     </section>
